@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahadev Common Service Center (Net Cafe) - Patiala</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        saffron: '#FF9933',
+                        indiaGreen: '#138808'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .nav-link.active {
+            color: #2563eb;
+            background-color: #eff6ff;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Top Announcement & Quick Contact Header -->
+    <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-900 text-white text-xs py-2 px-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <a href="tel:8146244491" class="flex items-center gap-1.5 hover:text-saffron transition font-medium"><i class="fa-solid fa-phone text-saffron"></i> +91 81462 44491</a>
+                <span class="hidden md:inline text-slate-500">|</span>
+                <a href="mailto:mahadevnetcafe786@gmail.com" class="hidden md:flex items-center gap-1.5 hover:text-saffron transition"><i class="fa-solid fa-envelope text-saffron"></i> mahadevnetcafe786@gmail.com</a>
+            </div>
+            <div class="flex items-center space-x-3 text-xs">
+                <span class="bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded font-medium border border-amber-500/30">Prem colony Near CIA Staff, Patiala 147001</span>
+                <a href="https://wa.me/918146244491" target="_blank" class="hover:text-emerald-400 transition" title="WhatsApp Us"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-8 z-40 glass-nav border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="javascript:void(0)" onclick="switchPage('home')" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 text-white flex items-center justify-center font-bold text-2xl shadow-md">
+                        <i class="fa-solid fa-building-columns text-saffron"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold text-brand-900 tracking-tight block leading-tight">MAHADEV NET CAFE</span>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-widest block">Common Service Center (CSC)</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links for Pages -->
+                <nav class="hidden md:flex items-center space-x-1">
+                    <button onclick="switchPage('home')" id="nav-home" class="nav-link active px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-brand-700 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-house mr-1"></i> Home
+                    </button>
+                    <button onclick="switchPage('services')" id="nav-services" class="nav-link px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-brand-700 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-list-check mr-1"></i> Services
+                    </button>
+                    <button onclick="switchPage('pricing')" id="nav-pricing" class="nav-link px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-brand-700 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-calculator mr-1"></i> Rate List
+                    </button>
+                    <button onclick="switchPage('register')" id="nav-register" class="nav-link px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-brand-700 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-user-plus mr-1"></i> Online Registration
+                    </button>
+                    <button onclick="switchPage('login')" id="nav-login" class="nav-link px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-brand-700 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-right-to-bracket mr-1"></i> Portal Login
+                    </button>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button onclick="switchPage('register')" class="hidden sm:flex bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-md transition items-center gap-1.5">
+                        <i class="fa-solid fa-user-plus"></i> Register
+                    </button>
+                    <button onclick="switchPage('login')" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-md transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- ================= PAGE 1: HOME PAGE ================= -->
+        <div id="page-home" class="page-view space-y-12">
+            <!-- HERO SECTION -->
+            <section class="bg-gradient-to-b from-brand-900 via-brand-800 to-brand-900 text-white py-16 border-b border-brand-700">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider border border-amber-500/30">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i> Official Government Digital Portal • Patiala
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Mahadev Common Service Center & Net Cafe</h1>
+                    <p class="text-brand-100 text-xs sm:text-base max-w-3xl mx-auto">
+                        Fast-track processing for New PAN Cards, PAN Corrections, Aadhaar Updates, Punjab E-Sewa Certificates, Online Exam Applications, PVC Plastic Cards, and Portal User Accounts.
+                    </p>
+                    <div class="pt-4 flex flex-wrap justify-center gap-3">
+                        <button onclick="switchPage('services')" class="bg-saffron hover:bg-amber-600 text-slate-900 font-extrabold px-6 py-3 rounded-xl text-xs transition shadow-lg flex items-center gap-2">
+                            <i class="fa-solid fa-id-card"></i> Aadhaar & PAN Services (₹250/-)
+                        </button>
+                        <button onclick="switchPage('register')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-6 py-3 rounded-xl text-xs transition shadow-lg flex items-center gap-2">
+                            <i class="fa-solid fa-user-plus"></i> Citizen Portal Registration
+                        </button>
+                        <button onclick="switchPage('login')" class="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-3 rounded-xl text-xs border border-white/20 transition flex items-center gap-2">
+                            <i class="fa-solid fa-right-to-bracket"></i> Login to Portal
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FEATURED QUICK SERVICES HIGHLIGHT -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fa-solid fa-id-card"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Aadhaar & PAN Services</h3>
+                        <p class="text-xs text-slate-500 mt-1">NEW PAN CARD APPLY (₹250/-) & CORRECTION YOUR PAN CARD APPLY (₹250/-).</p>
+                        <button onclick="switchPage('services')" class="mt-4 text-xs font-bold text-brand-600 hover:underline inline-flex items-center gap-1">View Details <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">E-Sewa Punjab Certificates</h3>
+                        <p class="text-xs text-slate-500 mt-1">Income, Caste, Domicile & Residence certificates at ₹100/- government fee.</p>
+                        <button onclick="switchPage('services')" class="mt-4 text-xs font-bold text-brand-600 hover:underline inline-flex items-center gap-1">Apply Certificates <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-slate-900">Online Recruitment & Exams</h3>
+                        <p class="text-xs text-slate-500 mt-1">SSC, Railway, GDS, Punjab Police form submission with photo resizing.</p>
+                        <button onclick="switchPage('services')" class="mt-4 text-xs font-bold text-brand-600 hover:underline inline-flex items-center gap-1">Fill Application <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- UNIVERSAL QUICK APPLICATION FORM -->
+            <section id="home-apply-form" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="border-b border-slate-200 pb-3">
+                        <span class="text-brand-600 font-extrabold text-xs tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-100">Quick Lead Application</span>
+                        <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Submit Document Application</h2>
+                        <p class="text-xs text-slate-500">Attach files and submit your details for immediate processing at Prem colony Near CIA Staff Patiala.</p>
+                    </div>
+
+                    <form onsubmit="handleQuickSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+                                <input type="text" required placeholder="Enter Full Name" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">10-Digit Mobile No. *</label>
+                                <input type="tel" required pattern="[0-9]{10}" placeholder="8146244491" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Email ID *</label>
+                                <input type="email" required placeholder="mahadevnetcafe786@gmail.com" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Required Service *</label>
+                                <select id="home-service-select" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium">
+                                    <option value="NEW PAN CARD APPLY">NEW PAN CARD APPLY (₹250/-)</option>
+                                    <option value="CORRECTION YOUR PAN CARD APPLY">CORRECTION YOUR PAN CARD APPLY (₹250/-)</option>
+                                    <option value="Income Certificate">Income Certificate (₹100/-)</option>
+                                    <option value="Caste / Domicile Certificate">Caste / Domicile Certificate (₹100/-)</option>
+                                    <option value="PVC Plastic Card">PVC Plastic Smart Card (₹50/-)</option>
+                                    <option value="Online Job Form">Online Recruitment Job Form</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Remarks / Application Notes</label>
+                            <textarea rows="2" placeholder="Mention changes required or additional details..." class="w-full p-3 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Upload Documents (Aadhaar, Passport Photo, Old PAN)</label>
+                            <input type="file" multiple class="w-full text-xs text-slate-500 border border-slate-300 rounded-xl p-2 bg-slate-50">
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Application Now
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 2: SERVICES PAGE ================= -->
+        <div id="page-services" class="page-view hidden space-y-12">
+            <section class="bg-gradient-to-b from-brand-900 via-brand-800 to-brand-900 text-white py-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+                    <span class="bg-amber-500/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-amber-500/30">Official Kiosk Services</span>
+                    <h1 class="text-3xl font-extrabold">Complete Government & Net Cafe Digital Services</h1>
+                    <p class="text-brand-100 text-xs max-w-2xl mx-auto">Authorized CSC Center in Prem colony Near CIA Staff Patiala 147001.</p>
+                </div>
+            </section>
+
+            <!-- AADHAAR & PAN SERVICES -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                <div class="border-b border-slate-200 pb-4">
+                    <span class="text-brand-600 font-extrabold text-xs tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-100">Primary Service</span>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mt-2 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-saffron"></i> Aadhaar & PAN Card Services
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- NEW PAN CARD APPLY CARD -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-extrabold text-slate-900 uppercase tracking-tight">NEW PAN CARD APPLY</h3>
+                                    <span class="text-xs text-brand-600 font-bold block mt-0.5">Physical Card Delivery + e-PAN Copy</span>
+                                </div>
+                                <div class="bg-emerald-600 text-white font-black text-xl px-4 py-1.5 rounded-xl shadow-xs">
+                                    ₹250/-
+                                </div>
+                            </div>
+                            <hr class="border-slate-200">
+                            <div class="space-y-3">
+                                <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider">REQUIRED DOCUMENTS:</h4>
+                                <ul class="space-y-2 text-xs text-slate-700 font-semibold">
+                                    <li class="flex items-center gap-2 bg-slate-50 p-3 rounded-xl border border-slate-200"><i class="fa-solid fa-circle-check text-emerald-500"></i> AADHAR CARD</li>
+                                    <li class="flex items-center gap-2 bg-slate-50 p-3 rounded-xl border border-slate-200"><i class="fa-solid fa-circle-check text-emerald-500"></i> PASSPORT SIZE PHOTO</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="switchPage('register')" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition">Apply via Citizen Portal (₹250/-)</button>
+                        </div>
+                    </div>
+
+                    <!-- CORRECTION YOUR PAN CARD APPLY CARD -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-extrabold text-slate-900 uppercase tracking-tight">CORRECTION YOUR PAN CARD APPLY</h3>
+                                    <span class="text-xs text-brand-600 font-bold block mt-0.5">Name, Date of Birth, Photo or Father's Name Change</span>
+                                </div>
+                                <div class="bg-emerald-600 text-white font-black text-xl px-4 py-1.5 rounded-xl shadow-xs">
+                                    ₹250/-
+                                </div>
+                            </div>
+                            <hr class="border-slate-200">
+                            <div class="space-y-3">
+                                <h4 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider">REQUIRED DOCUMENTS:</h4>
+                                <ul class="space-y-2 text-xs text-slate-700 font-semibold">
+                                    <li class="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200"><i class="fa-solid fa-circle-check text-emerald-500"></i> OLD PAN CARD</li>
+                                    <li class="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200"><i class="fa-solid fa-circle-check text-emerald-500"></i> AADHAR CARD</li>
+                                    <li class="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200"><i class="fa-solid fa-circle-check text-emerald-500"></i> PASSPORT SIZE PHOTO</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="switchPage('register')" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition">Apply Correction (₹250/-)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 3: PRICING / RATE LIST PAGE ================= -->
+        <div id="page-pricing" class="page-view hidden space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="text-center space-y-2">
+                <span class="text-brand-600 font-extrabold text-xs tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-100">Rate Chart</span>
+                <h1 class="text-3xl font-extrabold text-slate-900">Official CSC Service Fee Structure</h1>
+                <p class="text-xs text-slate-600">Fixed, government-compliant rate list for Mahadev Net Cafe Patiala.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-brand-900 text-white uppercase font-bold">
+                            <tr>
+                                <th class="p-4">Service Name</th>
+                                <th class="p-4">Government / Service Fee</th>
+                                <th class="p-4">Documents Required</th>
+                                <th class="p-4 text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 font-medium">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-bold text-slate-900">NEW PAN CARD APPLY</td>
+                                <td class="p-4 text-emerald-700 font-black">₹250/-</td>
+                                <td class="p-4">AADHAR CARD, PASSPORT SIZE PHOTO</td>
+                                <td class="p-4 text-center">
+                                    <button onclick="switchPage('register')" class="bg-brand-600 text-white px-3 py-1.5 rounded-lg font-bold hover:bg-brand-700">Apply</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-bold text-slate-900">CORRECTION YOUR PAN CARD APPLY</td>
+                                <td class="p-4 text-emerald-700 font-black">₹250/-</td>
+                                <td class="p-4">OLD PAN CARD, AADHAR CARD, PASSPORT PHOTO</td>
+                                <td class="p-4 text-center">
+                                    <button onclick="switchPage('register')" class="bg-brand-600 text-white px-3 py-1.5 rounded-lg font-bold hover:bg-brand-700">Apply</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-bold text-slate-900">Income / Caste / Residence Certificate</td>
+                                <td class="p-4 text-emerald-700 font-black">₹100/-</td>
+                                <td class="p-4">Aadhaar Card, Photo, Supporting Proofs</td>
+                                <td class="p-4 text-center">
+                                    <button onclick="switchPage('register')" class="bg-brand-600 text-white px-3 py-1.5 rounded-lg font-bold hover:bg-brand-700">Apply</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-bold text-slate-900">PVC Plastic Smart Card Print</td>
+                                <td class="p-4 text-emerald-700 font-black">₹50/-</td>
+                                <td class="p-4">Digital PDF Copy of Aadhaar/PAN</td>
+                                <td class="p-4 text-center">
+                                    <button onclick="switchPage('register')" class="bg-brand-600 text-white px-3 py-1.5 rounded-lg font-bold hover:bg-brand-700">Order</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 4: ONLINE REGISTRATION PAGE ================= -->
+        <div id="page-register" class="page-view hidden py-12 bg-slate-50">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-md space-y-6">
+                    <div class="text-center space-y-1 border-b border-slate-200 pb-4">
+                        <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200">Citizen Registration</span>
+                        <h1 class="text-2xl font-extrabold text-slate-900 mt-2">Create Portal Account</h1>
+                        <p class="text-xs text-slate-500">Register to submit Aadhaar & PAN applications and track progress online.</p>
+                    </div>
+
+                    <form onsubmit="handleRegistrationSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+                            <input type="text" id="reg-name" required placeholder="Enter Full Name" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">10-Digit Mobile Number *</label>
+                                <input type="tel" id="reg-mobile" required pattern="[0-9]{10}" placeholder="8146244491" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Email ID *</label>
+                                <input type="email" id="reg-email" required placeholder="mahadevnetcafe786@gmail.com" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Password *</label>
+                                <input type="password" id="reg-password" required minlength="6" placeholder="••••••••" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Preferred Service *</label>
+                                <select id="reg-service" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium">
+                                    <option value="NEW PAN CARD APPLY">NEW PAN CARD APPLY (₹250/-)</option>
+                                    <option value="CORRECTION YOUR PAN CARD APPLY">CORRECTION YOUR PAN CARD APPLY (₹250/-)</option>
+                                    <option value="Income Certificate">Income Certificate (₹100/-)</option>
+                                    <option value="Caste / Domicile Certificate">Caste / Domicile Certificate (₹100/-)</option>
+                                    <option value="PVC Plastic Card">PVC Plastic Smart Card (₹50/-)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Village / Local Address (Patiala)</label>
+                            <input type="text" placeholder="Prem colony Near CIA Staff Patiala 147001" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Upload Registration Document (Aadhaar / Photo)</label>
+                            <input type="file" required class="w-full text-xs text-slate-500 border border-slate-300 rounded-xl p-2 bg-slate-50">
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="reg-terms" required class="rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+                            <label for="reg-terms" class="text-[11px] text-slate-600">I agree to the terms and authorize Mahadev Net Cafe for CSC processing.</label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-user-check"></i> Register Account & Submit
+                        </button>
+                    </form>
+
+                    <div class="text-center pt-2 border-t border-slate-100">
+                        <p class="text-xs text-slate-600">Already registered? <button onclick="switchPage('login')" class="text-brand-600 font-bold hover:underline">Click Here to Login</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 5: PORTAL LOGIN PAGE ================= -->
+        <div id="page-login" class="page-view hidden py-12 bg-slate-50">
+            <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-md space-y-6">
+                    <div class="text-center space-y-1 border-b border-slate-200 pb-4">
+                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mx-auto text-xl font-bold">
+                            <i class="fa-solid fa-user-lock"></i>
+                        </div>
+                        <h1 class="text-2xl font-extrabold text-slate-900 mt-2">Citizen Portal Login</h1>
+                        <p class="text-xs text-slate-500">Enter your credentials to access your CSC dashboard.</p>
+                    </div>
+
+                    <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Mobile Number or Email ID *</label>
+                            <input type="text" id="login-id" required placeholder="8146244491 or mahadevnetcafe786@gmail.com" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="block text-xs font-bold text-slate-700">Password *</label>
+                                <a href="javascript:void(0)" onclick="alert('Please contact Mahadev CSC Admin at +91 81462 44491 to reset password.')" class="text-[11px] font-bold text-brand-600 hover:underline">Forgot Password?</a>
+                            </div>
+                            <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+
+                        <!-- CAPTCHA VERIFICATION -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Enter Security Captcha Code *</label>
+                            <div class="flex items-center gap-3 mb-2">
+                                <div id="captcha-code" class="bg-slate-800 text-amber-400 font-mono font-black text-lg px-4 py-2 rounded-xl tracking-widest border border-slate-700 select-none">
+                                    7F9K2
+                                </div>
+                                <button type="button" onclick="generateCaptcha()" class="text-xs text-brand-600 font-bold hover:underline"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+                            </div>
+                            <input type="text" id="login-captcha" required placeholder="Enter captcha code shown above" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 uppercase">
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="login-remember" class="rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+                            <label for="login-remember" class="text-[11px] text-slate-600 font-medium">Keep me logged in</label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-right-to-bracket"></i> Login to Dashboard
+                        </button>
+                    </form>
+
+                    <div class="text-center pt-2 border-t border-slate-100">
+                        <p class="text-xs text-slate-600">New user? <button onclick="switchPage('register')" class="text-emerald-600 font-bold hover:underline">Create an Account Here</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- CITIZEN DASHBOARD MODAL VIEW (Post Login) -->
+    <div id="dashboard-modal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 border border-slate-200 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-slate-200 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-base">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-base font-extrabold text-slate-900" id="dash-user-name">Welcome, Citizen User</h2>
+                        <p class="text-xs text-slate-500">Mahadev CSC Portal Account Active</p>
+                    </div>
+                </div>
+                <button onclick="closeDashboard()" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-xs font-extrabold uppercase text-slate-700 tracking-wider">Your Application Submissions</h3>
+                <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs font-bold text-slate-900">NEW PAN CARD APPLY (₹250/-)</p>
+                        <p class="text-[11px] text-slate-500">Ref ID: MCSC-2026-9821 • Status: <span class="text-amber-600 font-bold">Under Processing</span></p>
+                    </div>
+                    <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2.5 py-1 rounded-full">In Review</span>
+                </div>
+            </div>
+
+            <div class="pt-2 flex justify-end gap-3">
+                <button onclick="closeDashboard()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-4 py-2 rounded-xl">Close</button>
+                <button onclick="alert('Receipt Downloaded Successfully.');" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-4 py-2 rounded-xl"><i class="fa-solid fa-download mr-1"></i> Download Receipt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING LIVE CHAT ASSISTANT -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="chat-toggle-btn" onclick="toggleChat()" class="bg-brand-600 hover:bg-brand-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-xl transition-all transform hover:scale-105">
+            <i class="fa-solid fa-comments"></i>
+        </button>
+
+        <div id="chat-box" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col h-[420px]">
+            <div class="bg-brand-900 text-white p-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-saffron text-slate-900 font-bold flex items-center justify-center text-xs">M</div>
+                    <div>
+                        <p class="text-xs font-bold leading-tight">Mahadev CSC Assistant</p>
+                        <p class="text-[10px] text-brand-200">Patiala • Online</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-white hover:text-slate-300 text-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div id="chat-messages" class="flex-grow p-4 space-y-3 overflow-y-auto text-xs custom-scrollbar bg-slate-50">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] space-y-1">
+                    <p class="text-slate-800">Hello! Welcome to <strong>Mahadev Common Service Center</strong> Patiala. Ask me about PAN Card fees, Registration, or Location!</p>
+                </div>
+            </div>
+
+            <div class="p-2 border-t border-slate-200 bg-white space-y-2">
+                <div class="flex gap-1 overflow-x-auto pb-1 text-[10px]">
+                    <button onclick="quickChat('PAN Card Fees')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap">PAN Card Fees</button>
+                    <button onclick="quickChat('Registration')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap">How to Register?</button>
+                    <button onclick="quickChat('Address & Location')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap">Location</button>
+                </div>
+                <div class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Type your message..." class="flex-grow text-xs p-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-500" onkeypress="if(event.key === 'Enter') sendChatMessage()">
+                    <button onclick="sendChatMessage()" class="bg-brand-600 text-white px-3.5 rounded-xl text-xs font-bold hover:bg-brand-700"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
+            <div class="space-y-1">
+                <p class="text-white font-extrabold text-sm">MAHADEV COMMON SERVICE CENTER (NET CAFE)</p>
+                <p class="text-slate-400">Prem colony Near CIA Staff Patiala 147001</p>
+                <p class="text-slate-400">Phone: <a href="tel:8146244491" class="text-saffron font-bold">+91 81462 44491</a> | Email: <a href="mailto:mahadevnetcafe786@gmail.com" class="text-saffron">mahadevnetcafe786@gmail.com</a></p>
+            </div>
+            <div class="flex justify-center gap-4 text-slate-400 font-medium">
+                <button onclick="switchPage('home')" class="hover:text-white">Home</button>
+                <button onclick="switchPage('services')" class="hover:text-white">Services</button>
+                <button onclick="switchPage('pricing')" class="hover:text-white">Rate Chart</button>
+                <button onclick="switchPage('register')" class="hover:text-white">Online Registration</button>
+                <button onclick="switchPage('login')" class="hover:text-white">Portal Login</button>
+            </div>
+            <hr class="border-slate-800 max-w-md mx-auto">
+            <p class="text-slate-500 text-[11px]">&copy; 2026 Mahadev CSC Patiala. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation Logic (SPA Routing)
+        function switchPage(pageId) {
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.add('hidden'));
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            const targetNav = document.getElementById('nav-' + pageId);
+            if (targetNav) {
+                targetNav.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Generate Random Captcha
+        function generateCaptcha() {
+            const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let captcha = "";
+            for (let i = 0; i < 5; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('captcha-code').innerText = captcha;
+        }
+
+        // Registration Submission
+        function handleRegistrationSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            alert(`Account registered successfully for ${name}! Please login with your credentials.`);
+            switchPage('login');
+        }
+
+        // Login Submission
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            const inputCaptcha = document.getElementById('login-captcha').value.toUpperCase();
+            const currentCaptcha = document.getElementById('captcha-code').innerText;
+
+            if (inputCaptcha !== currentCaptcha) {
+                alert('Invalid Captcha Code. Please try again!');
+                generateCaptcha();
+                return;
+            }
+
+            const loginId = document.getElementById('login-id').value;
+            document.getElementById('dash-user-name').innerText = `Welcome, ${loginId}`;
+            document.getElementById('dashboard-modal').classList.remove('hidden');
+        }
+
+        function closeDashboard() {
+            document.getElementById('dashboard-modal').classList.add('hidden');
+        }
+
+        function handleQuickSubmit(e) {
+            e.preventDefault();
+            alert('Application submitted successfully! Our operator will contact you at +91 81462 44491.');
+        }
+
+        // Live Chat Assistant Toggle & Messages
+        function toggleChat() {
+            document.getElementById('chat-box').classList.toggle('hidden');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            addMessage(msg, 'user');
+            input.value = '';
+
+            setTimeout(() => {
+                let reply = "Thank you for contacting Mahadev Net Cafe Patiala! Call us at +91 81462 44491 for instant help.";
+                const lower = msg.toLowerCase();
+                if (lower.includes('pan') || lower.includes('fee')) {
+                    reply = "New PAN Card and PAN Correction fee is ₹250/- with Aadhaar Card and Passport Photo.";
+                } else if (lower.includes('register') || lower.includes('account')) {
+                    reply = "You can click on 'Online Registration' in the top menu to create your citizen portal account.";
+                } else if (lower.includes('location') || lower.includes('address')) {
+                    reply = "We are located at Prem colony Near CIA Staff Patiala 147001.";
+                }
+                addMessage(reply, 'bot');
+            }, 500);
+        }
+
+        function quickChat(type) {
+            if (type === 'PAN Card Fees') {
+                addMessage("What are the PAN Card fees?", 'user');
+                setTimeout(() => addMessage("New PAN Card & PAN Correction fee is ₹250/-.", 'bot'), 400);
+            } else if (type === 'Registration') {
+                addMessage("How to register for account?", 'user');
+                setTimeout(() => addMessage("Click on 'Online Registration' in the header menu to create your account.", 'bot'), 400);
+            } else if (type === 'Address & Location') {
+                addMessage("Where is your shop located?", 'user');
+                setTimeout(() => addMessage("Prem colony Near CIA Staff Patiala 147001.", 'bot'), 400);
+            }
+        }
+
+        function addMessage(text, sender) {
+            const container = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = sender === 'user' 
+                ? 'bg-brand-600 text-white p-3 rounded-xl ml-auto max-w-[85%] text-xs' 
+                : 'bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] text-xs text-slate-800';
+            msgDiv.innerText = text;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Initialize Captcha on page load
+        window.onload = function() {
+            generateCaptcha();
+        }
+    </script>
+</body>
+</html>
